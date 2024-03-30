@@ -1,7 +1,7 @@
 # LeetCode Solutions
 
 ## Description
-This repository contains solutions to various LeetCode problems implemented in Java. Each problem solution is accompanied by a detailed explanation of the approach and algorithm used.
+This repository contains solutions to various LeetCode problems implemented in Java. A detailed explanation of the approach and algorithm used accompanies each problem solution.
 
 ## Table of Contents
 1. [Introduction](#introduction)
