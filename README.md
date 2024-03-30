@@ -18,7 +18,7 @@ To use the solutions provided in this repository, follow these steps:
 1. Clone the repository to your local machine using `git clone`.
 2. Navigate to the specific problem folder you are interested in.
 3. Open the Java file containing the solution implementation.
-4. Review the code and accompanying comments for understanding the solution approach.
+4. Review the code and accompanying comments to understand the solution approach.
 5. Run the code in your preferred Java development environment or IDE to test and validate the solution.
 
 ## Folder Structure
