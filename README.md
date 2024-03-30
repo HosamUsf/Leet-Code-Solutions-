@@ -1,4 +1,4 @@
-**Repository Name: LeetCode Solutions**
+**LeetCode Solutions**
 
 **Description:**
 This repository contains solutions to various LeetCode problems implemented in Java. Each problem solution is accompanied by a detailed explanation of the approach and algorithm used.
