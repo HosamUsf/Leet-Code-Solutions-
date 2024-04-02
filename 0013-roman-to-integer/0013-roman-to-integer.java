@@ -1,26 +1,19 @@
 class Solution {
     public int romanToInt(String s) {
-          Map<Character,Integer> romanNumbers=new HashMap<>()
-        {{
-            put('I',1);
-            put('V',5);
-            put('X',10);
-            put('L',50);
-            put('C',100);
-            put('D',500);
-            put('M',1000);
-        }};
-
-        int sum = 0 ; 
-        for(int i = 0; i < s.length()-1; i++) {
-            if(romanNumbers.get(s.charAt(i)) >= romanNumbers.get(s.charAt(i+1))){
-                sum+=romanNumbers.get(s.charAt(i));
-
-            } else {
-                sum-=romanNumbers.get(s.charAt(i));
-
+         int ans = 0, num = 0;
+        for (int i = s.length()-1; i >= 0; i--) {
+            switch(s.charAt(i)) {
+                case 'I': num = 1; break;
+                case 'V': num = 5; break;
+                case 'X': num = 10; break;
+                case 'L': num = 50; break;
+                case 'C': num = 100; break;
+                case 'D': num = 500; break;
+                case 'M': num = 1000; break;
             }
+            if (4 * num < ans) ans -= num;
+            else ans += num;
         }
-        return sum+=romanNumbers.get(s.charAt(s.length()-1));
+        return ans;
     }
 }
