@@ -1,20 +1,25 @@
 class Solution {
     public boolean isPalindrome(String s) {
-        String new_string = s.replaceAll("\\W+", "");
-        new_string = new_string.replaceAll("_", "");
-
-        
-        if(new_string.length() <=1) {
-            return true;
+        if (s.isEmpty()) {
+        	return true;
         }
-        new_string = new_string.toLowerCase();
-
-        for(int i = 0;i<new_string.length();i++){
-            if(new_string.charAt(i) !=new_string.charAt(new_string.length()-1-i) ){
-                return false;
-            }
+        int start = 0;
+        int last = s.length() - 1;
+        while(start <= last) {
+        	char currFirst = s.charAt(start);
+        	char currLast = s.charAt(last);
+        	if (!Character.isLetterOrDigit(currFirst )) {
+        		start++;
+        	} else if(!Character.isLetterOrDigit(currLast)) {
+        		last--;
+        	} else {
+        		if (Character.toLowerCase(currFirst) != Character.toLowerCase(currLast)) {
+        			return false;
+        		}
+        		start++;
+        		last--;
+        	}
         }
-
         return true;
     }
 }
