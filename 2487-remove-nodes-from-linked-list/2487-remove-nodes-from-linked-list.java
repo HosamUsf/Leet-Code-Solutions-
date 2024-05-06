@@ -1,33 +1,21 @@
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
- * }
- */
-class Solution {
+ class Solution {   
     public ListNode removeNodes(ListNode head) {
-        ListNode current = head; 
-        Stack<ListNode> stack = new Stack<>();
-
-        while(current != null){
-            while(!stack.isEmpty() && stack.peek().val < current.val){
-                stack.pop();
-            }
-            stack.push(current);
-            current = current.next;
-        }
-        ListNode next = null;
-
-        while(!stack.isEmpty()){
-            current = stack.pop();
-            current.next = next;
-            next = current;
+        // Base case, reached end of the list
+        if (head == null || head.next == null) {
+            return head;
         }
 
-        return current;
+        // Recursive call
+        ListNode nextNode = removeNodes(head.next);
+
+        // If the next node has greater value than head, delete the head
+        // Return next node, which removes the current head and makes next the new head
+        if (head.val < nextNode.val) {
+            return nextNode;
+        }
+
+        // Keep the head
+        head.next = nextNode;
+        return head;
     }
 }
