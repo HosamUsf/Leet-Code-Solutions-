@@ -1,27 +1,17 @@
 class Solution {
     public long maximumHappinessSum(int[] happiness, int k) {
-        int happinessSize = happiness.length;
-        
-        // Convert the array to an Integer array for sorting in descending order
-        Integer[] happinessArray = new Integer[happinessSize];
-        for(int i = 0; i < happinessSize; i++) {
-            happinessArray[i] = happiness[i];
+        Arrays.sort(happiness);
+        int dec = 0;
+        long max=0;
+        int value=0;
+        for(int i=happiness.length-1;i>=happiness.length-k;i--){
+            value = happiness[i]-dec;
+            dec++;
+            if(value>0)
+            {
+                max += value;
+            }
         }
-        
-        Arrays.sort(happinessArray, Collections.reverseOrder());
-
-        long totalHappinessSum = 0;
-        int turns = 0;
-        
-        // Calculate the maximum happiness sum
-        for(int i = 0; i < k; i++) {
-            // Adjust happiness and ensure it's not negative
-            totalHappinessSum += Math.max(happinessArray[i] - turns, 0);  
-
-             // Increment turns for the next iteration
-            turns++; 
-        }
-        
-        return totalHappinessSum;
+        return max;
     }
 }
